@@ -1,5 +1,4 @@
-import fs from 'fs';
-import yaml from 'js-yaml';
+import {config} from "../config.ts";
 import merge from 'lodash.merge';
 
 import type { MetaData } from '~/types';
@@ -67,16 +66,6 @@ export interface AnalyticsConfig {
   };
 }
 
-const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
-  site?: SiteConfig;
-  metadata?: MetaDataConfig;
-  i18n?: I18NConfig;
-  apps?: {
-    blog?: AppBlogConfig;
-  };
-  ui?: unknown;
-  analytics?: unknown;
-};
 
 const DEFAULT_SITE_NAME = 'Website';
 
